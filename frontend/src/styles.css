@@ -1,0 +1,421 @@
+:root {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #182033;
+  background: #f4f6fb;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.page-shell {
+  width: min(1460px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 32px 0 60px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: #625ee8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 8px;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+}
+
+.topbar p,
+.panel-heading p,
+.assistant-header p {
+  color: #697087;
+  margin-bottom: 0;
+}
+
+.status-pill,
+.step-chip {
+  border: 1px solid #dfe3ef;
+  background: #fff;
+  border-radius: 999px;
+  padding: 9px 13px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #2bb673;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(330px, 0.8fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.panel {
+  border: 1px solid #e1e5f0;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 16px 45px rgba(33, 42, 75, 0.08);
+}
+
+.form-panel {
+  padding: 26px;
+}
+
+.panel-heading,
+.assistant-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.panel-heading h2,
+.assistant-header h2 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field > span,
+.sentiment-field legend {
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: #31394c;
+}
+
+.field small {
+  color: #7a8297;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid #dbe0eb;
+  border-radius: 11px;
+  background: #fbfcff;
+  padding: 12px 13px;
+  color: #182033;
+  outline: none;
+  transition: 0.18s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #6d67ee;
+  box-shadow: 0 0 0 3px rgba(109, 103, 238, 0.12);
+  background: #fff;
+}
+
+textarea {
+  min-height: 94px;
+  resize: vertical;
+}
+
+.sentiment-field {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.sentiment-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sentiment-options label {
+  position: relative;
+}
+
+.sentiment-options input {
+  position: absolute;
+  opacity: 0;
+}
+
+.sentiment-options span {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid #dbe0eb;
+  border-radius: 999px;
+  color: #666f84;
+}
+
+.sentiment-options input:checked + span {
+  border-color: #6d67ee;
+  color: #514bd4;
+  background: #f0efff;
+  font-weight: 700;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.primary-button,
+.secondary-button,
+.chat-box button {
+  border: 0;
+  border-radius: 11px;
+  padding: 12px 18px;
+  font-weight: 700;
+}
+
+.primary-button,
+.chat-box button {
+  background: #625ee8;
+  color: #fff;
+}
+
+.secondary-button {
+  background: #eef0f6;
+  color: #343b4f;
+}
+
+.assistant-panel {
+  min-height: 690px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.assistant-header {
+  justify-content: flex-start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e8ebf3;
+}
+
+.assistant-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: #fff;
+  font-weight: 800;
+  background: linear-gradient(145deg, #625ee8, #8d68ec);
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 480px;
+}
+
+.message {
+  max-width: 90%;
+  padding: 12px 13px;
+  border-radius: 13px;
+  line-height: 1.48;
+  font-size: 0.9rem;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: #f0f2f8;
+}
+
+.message.user {
+  align-self: flex-end;
+  color: #fff;
+  background: #625ee8;
+}
+
+.message pre {
+  max-width: 100%;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-size: 0.72rem;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.suggestions button {
+  border: 1px solid #dfe3ef;
+  border-radius: 999px;
+  background: #fff;
+  padding: 7px 10px;
+  color: #565f75;
+  font-size: 0.75rem;
+}
+
+.chat-box {
+  border-top: 1px solid #e8ebf3;
+  padding-top: 14px;
+}
+
+.chat-box textarea {
+  min-height: 82px;
+}
+
+.chat-box button {
+  width: 100%;
+  margin-top: 9px;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.recent-panel {
+  margin-top: 22px;
+  padding: 24px;
+}
+
+.interaction-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.interaction-card {
+  border: 1px solid #e4e7f0;
+  border-radius: 14px;
+  padding: 16px;
+  background: #fcfcfe;
+}
+
+.interaction-card > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.interaction-card span,
+.interaction-card small {
+  color: #737b91;
+  font-size: 0.78rem;
+}
+
+.interaction-card p {
+  color: #4f576b;
+  margin: 12px 0;
+  font-size: 0.88rem;
+}
+
+.error-box {
+  margin-top: 15px;
+  color: #a12929;
+  background: #fff0f0;
+  padding: 11px;
+  border-radius: 10px;
+}
+
+.empty-state {
+  color: #757d91;
+}
+
+@media (max-width: 980px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .assistant-panel {
+    min-height: 520px;
+  }
+
+  .interaction-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 22px, 1460px);
+    padding-top: 20px;
+  }
+
+  .topbar {
+    flex-direction: column;
+  }
+
+  .form-grid,
+  .interaction-list {
+    grid-template-columns: 1fr;
+  }
+
+  .field-wide {
+    grid-column: auto;
+  }
+
+  .form-panel,
+  .assistant-panel,
+  .recent-panel {
+    padding: 18px;
+    border-radius: 15px;
+  }
+}
